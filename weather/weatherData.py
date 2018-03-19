@@ -13,4 +13,10 @@ features = ["date", "meantempm", "meandewptm", "meanpressurem", "maxhumidity", "
             "mintempm", "maxdewptm", "mindewptm", "maxpressurem", "minpressurem", "precipm"]
 DailyDummary = namedtuple("DailySummary", features)
 
+def extract_weather_data(url, api_key, target_date, days):
+    records = []
+    for _ in range(days):
+        request = BASE_URL.format(API_KEY, target_date.strftime('%Y%m%d'))
+        response = requests.get(request)
+        
 
