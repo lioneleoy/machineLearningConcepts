@@ -5,4 +5,12 @@ import pandas as pd
 import requests
 import matplotlib.pyplot as plt
 
+BASE_URL = "http://api.wunderground.com/api/{}/history_{}/q/NE/Lincoln.json"
+API_KEY = '8e5882650987c735'
+
+target_date = datetime(2017, 5, 16)
+features = ["date", "meantempm", "meandewptm", "meanpressurem", "maxhumidity", "minhumidity", "maxtempm",  
+            "mintempm", "maxdewptm", "mindewptm", "maxpressurem", "minpressurem", "precipm"]
+DailyDummary = namedtuple("DailySummary", features)
+
 
