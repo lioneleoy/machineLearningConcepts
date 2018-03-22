@@ -42,7 +42,7 @@ dc_listings.drop('distance',axis=1)
 train_df = dc_listings.copy().iloc[:2792]
 test_df = dc_listings.copy().iloc[2792:]
 
-print test_df.shape
+
 
 
 
