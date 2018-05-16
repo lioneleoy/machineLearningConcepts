@@ -18,6 +18,7 @@ def extract_weather_data(url, api_key, target_date, days):
     for _ in range(days):
         request = BASE_URL.format(API_KEY, target_date.strftime('%Y%m%d'))
         response = requests.get(request)
+        # print response
         if response.status_code == 200:
             data = response.json()['history']['dailysummary'][0]
             records.append(DailySummary(
@@ -34,12 +35,13 @@ def extract_weather_data(url, api_key, target_date, days):
                 maxpressurem=data['maxpressurem'],
                 minpressurem=data['minpressurem'],
                 precipm=data['precipm']))
-        time.sleep(6)
+        time.sleep(15)
         target_date += timedelta(days= 1)
-
+        print (records)
     return records
 
 weather_data = extract_weather_data(BASE_URL, API_KEY, target_date, 500)
+print "initiating"
 
 
 
